@@ -16,7 +16,7 @@ interface ToggleGroupProps {
   spacing?: 'tight' | 'spaced'
   buttonsHeight?: 'normal' | 'small'
   activeButton?: string
-  onToggle: (id: string) => void
+  onToggle?: (id: string) => void
 }
 
 export const ToggleGroup: React.FC<ToggleGroupProps> = ({
@@ -26,15 +26,12 @@ export const ToggleGroup: React.FC<ToggleGroupProps> = ({
   activeButton,
   onToggle,
 }) => {
-  // TODO: WHEN REDUX/CONTEXT IS CREATED AND CONNECTED IMPORT SETSTATE FUNCTION TO CHANGE THE STORE
-  const [activeButtonState, setActiveButtonState] = useState<string | null>(null)
 
   const handleToggle = (id: string, disabled?: boolean) => {
     if (disabled) {
       return
     }
-    setActiveButtonState(id)
-    onToggle(id)
+    onToggle?.(id)
   }
 
   return (
