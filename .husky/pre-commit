@@ -1,4 +1,17 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
-npm test
+# Проверяем изменения в версии package.json
+if git diff --cached --quiet package.json; then
+  echo "❌ Ошибка: Перед коммитом обнови версию в package.json!"
+  exit 1
+fi
+
+# Проверяем, было ли изменено поле version
+if ! git diff --cached -G"version" --quiet package.json; then
+  echo "✅ Версия обновлена. Коммитим!"
+  exit 0
+else
+  echo "❌ Ошибка: Поле version в package.json не было обновлено!"
+  exit 1
+fi
