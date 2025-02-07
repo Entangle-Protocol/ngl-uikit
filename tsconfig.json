@@ -17,7 +17,9 @@
     "declarationMap": true,
     "sourceMap": true,
     "emitDeclarationOnly": false,
-    "allowJs": true
+    "allowJs": true,
+    "composite": true,
+    "rootDir": "src"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

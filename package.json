@@ -1,16 +1,17 @@
 {
   "name": "@entangle-protocol/ngl-uikit",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --mode production",
     "prepare": "npm run build && husky install"
   },
   "files": [
     "dist",
     "README.md",
-    "src/**/*.scss"
+    "src/**/*.scss",
+    "src/**/*.css"
   ],
   "repository": {
     "type": "git",
@@ -20,12 +21,17 @@
   "dependencies": {
     "@types/react": "^18.3.18",
     "classnames": "^2.5.1",
-    "react": "^18.3.1"
+    "react": "^18.3.1",
+    "sass": "^1.84.0"
   },
   "devDependencies": {
     "husky": "^8.0.0",
-    "sass": "^1.84.0",
-    "sass-loader": "^16.0.4"
+    "sass-loader": "^16.0.4",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.5.1"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
