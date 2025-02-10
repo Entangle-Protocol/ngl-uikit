@@ -1,0 +1,36 @@
+.root {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.item {
+  border: none;
+}
+
+.top,
+.bottom {
+  position: absolute;
+  pointer-events: none;
+}
+
+.top {
+  top: 0;
+  border-top: 1px solid #727273;
+}
+
+.bottom {
+  bottom: 0;
+  border-bottom: 1px solid #727273;
+}
+
+.left {
+  left: 0;
+  border-left: 1px solid #727273;
+}
+
+.right {
+  right: 0;
+  border-right: 1px solid #727273;
+}
