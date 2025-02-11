@@ -5,19 +5,21 @@ import { AssetClassItem } from './AssetClassItem'
 import { AssetClassFilter } from './AssetClassFilter'
 import { DropdownIcon, SearchIcon } from '../icons'
 import { SearchInput } from '../SearchInput/SearchInput'
-
+import cx from 'classnames'
 interface CheckboxDropdownProps {
   label: string
   items: { label: string; value: string; count: number }[]
   onApply: (selectedItems: string[]) => void
   withSearch?: boolean
+  searchPlaceholder?: string
 }
 
-export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({ 
-  label, 
-  items, 
-  onApply, 
-  withSearch = false 
+export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
+  label,
+  items,
+  onApply,
+  withSearch = false,
+  searchPlaceholder = '',
 }) => {
   const [selectedAssets, setSelectedAssets] = useState<string[]>([])
   const [searchTerm, setSearchTerm] = useState<string>('')
@@ -40,9 +42,7 @@ export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
   }
 
   const filteredAssets = useMemo(() => {
-    return items.filter((item) =>
-      item.label.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    return items.filter((item) => item.label.toLowerCase().includes(searchTerm.toLowerCase()))
   }, [items, searchTerm])
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -61,17 +61,19 @@ export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
   return (
     <div ref={dropdownRef} className={styles.root}>
       <div onClick={handleOpen} className={styles.dropdownBtn}>
-        <div className={styles.textDropdown}>{label} ({items.length})</div>
-        <div className={isOpen ? styles.arrowStyle : ''}>
+        <div className={styles.textDropdown}>
+          {label} ({items.length})
+        </div>
+        <div className={cx(styles.arrowStyle, { [styles.rotate]: isOpen })}>
           <DropdownIcon />
         </div>
       </div>
       {isOpen && (
         <div className={styles.dropdown}>
           <div className={styles.container}>
-            {withSearch && (
-              <SearchInput 
-                placeholder="Search Asset Class"
+            {withSearch && items.length > 4 && (
+              <SearchInput
+                placeholder={searchPlaceholder ?? 'Search Asset Class'}
                 value={searchTerm}
                 onSearch={setSearchTerm}
               />
@@ -89,7 +91,7 @@ export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
               ))}
             </div>
             <AssetClassFilter
-              filterCount={selectedAssets.length} 
+              filterCount={selectedAssets.length}
               onApply={handleApplyFilter}
             />
           </div>

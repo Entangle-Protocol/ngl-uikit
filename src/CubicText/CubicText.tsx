@@ -11,14 +11,12 @@ export const CubicText: React.FC<CubicTextProps> = ({
   const words = content.split(' ').filter(word => word.length > 0)
 
   return (
-    <div className={styles.root}>
-      <div className={styles.wordWrapper}>
+      <div className={styles.root}>
         {words.map((word, index) => (
           <div key={index} className={styles.word}>
             {word}
           </div>
         ))}
       </div>
-    </div>
   )
 }

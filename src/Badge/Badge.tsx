@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { CheckIcon, ExpiringIcon, DepositIcon, WarningIcon } from '../icons'
 
 interface BadgeProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   color?: string
   icon?: React.ReactNode | null
   variant?: 'success' | 'expiring' | 'deposit' | 'warning'
@@ -12,29 +12,24 @@ interface BadgeProps {
 
 export const Badge: React.FC<BadgeProps> = ({
   children,
-  variant = null,
+  variant,
   color = '',
   icon = null,
 }) => {
-  const iconToShow = variant === 'success'
-    ? <CheckIcon />
-    : variant === 'expiring'
-      ? <ExpiringIcon />
-      : variant === 'deposit'
-        ? <DepositIcon />
-        : variant === 'warning'
-          ? <WarningIcon />
-          : icon
+  const iconToShow = icon || (
+    variant === 'success' ? <CheckIcon /> :
+    variant === 'expiring' ? <ExpiringIcon /> :
+    variant === 'warning' ? <WarningIcon /> :
+    null
+  )
 
-  const textToShow = variant === 'success'
-    ? 'Success'
-    : variant === 'expiring'
-      ? 'Expiring'
-      : variant === 'deposit'
-        ? 'Deposit'
-        : variant === 'warning'
-          ? 'Warning'
-          : children
+  const textToShow = children || (
+    variant === 'success' ? 'Success' :
+    variant === 'expiring' ? 'Expiring' :
+    variant === 'deposit' ? 'Deposit' :
+    variant === 'warning' ? 'Warning' :
+    ''
+  )
 
   return (
     <div
@@ -44,7 +39,7 @@ export const Badge: React.FC<BadgeProps> = ({
         [styles.warning]: variant === 'warning',
         [styles.deposit]: variant === 'deposit'
       })}
-      style={{ backgroundColor: !variant ? color : '' }}
+      style={{ backgroundColor: color }}
     >
       {iconToShow}
       <span className={styles.text}>{textToShow}</span>

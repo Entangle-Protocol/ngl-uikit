@@ -6,7 +6,7 @@
 }
 
 .label {
-  color: var(--M-800, #d1d1d3);
+  color:#d1d1d3;
   font-size: 14px;
   line-height: 20px;
   display: flex;
@@ -18,20 +18,16 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background: var(--M-300, #333335);
-  border: 1px solid var(--M-300, #333335);
+  background: #333335;
+  border: 1px solid #333335;
   transition: border-color 0.2s;
-
-  &:focus-within {
-    border-color: var(--P-500, #0066FF);
-  }
 }
 
 .leftAdornment {
   display: flex;
   align-items: center;
   padding: 0 12px;
-  color: var(--M-600, #919193);
+  color:#919193;
 }
 
 .input {
@@ -62,13 +58,14 @@
   justify-content: center;
   align-items: center;
   gap: 4px;
-  background: var(--M-900, #efeff0);
+  background:#efeff0;
   border: none;
   cursor: pointer;
-  color: var(--M-200, #202020);
+  color:#202020;
   font-size: 14px;
   font-weight: 700;
   transition: opacity 0.2s;
+  text-transform: uppercase;
 
   &:hover {
     opacity: 0.9;

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './PopoverMenu.module.scss'
 import { OptionDotsIcon } from '../icons'
+import cx from 'classnames'
 
 interface PopoverMenuItem {
   id: number | string
@@ -18,7 +19,7 @@ interface PopoverMenuProps {
 
 export const PopoverMenu: React.FC<PopoverMenuProps> = ({
   actions,
-  buttonIcon = <OptionDotsIcon />
+  buttonIcon = <OptionDotsIcon />,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
@@ -28,7 +29,7 @@ export const PopoverMenu: React.FC<PopoverMenuProps> = ({
   }
 
   const handleToggle = () => {
-    setIsOpen(prev => !prev)
+    setIsOpen((prev) => !prev)
   }
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -44,6 +45,13 @@ export const PopoverMenu: React.FC<PopoverMenuProps> = ({
     }
   }, [])
 
+  const handleItemClick = (action: PopoverMenuItem) => {
+    if (action.type === 'button' && typeof action.action === 'function') {
+      action.action()
+    }
+    setIsOpen(false)
+  }
+
   const renderAction = (action: PopoverMenuItem) =>
     action.type === 'link' ? (
       <a
@@ -52,31 +60,31 @@ export const PopoverMenu: React.FC<PopoverMenuProps> = ({
         target='_blank'
         rel='noopener noreferrer'
         className={styles.menuItem}
+        onClick={() => setIsOpen(false)}
       >
-        <span>{action.text}</span>
         {action.icon}
+        <span>{action.text}</span>
       </a>
     ) : (
       <button
         key={action.id}
         className={styles.menuItem}
-        onClick={action.action as () => void}
+        onClick={() => handleItemClick(action)}
       >
-        <span>{action.text}</span>
         {action.icon}
+        <span>{action.text}</span>
       </button>
     )
-    
+
   return (
     <div className={styles.root} ref={menuRef}>
-      <button className={styles.actionButton} onClick={handleToggle}>
+      <button
+        className={cx(styles.actionButton, { [styles.active]: isOpen })}
+        onClick={handleToggle}
+      >
         {buttonIcon}
       </button>
-      {isOpen && (
-        <div className={styles.menuDropdown}>
-          {actions.map(renderAction)}
-        </div>
-      )}
+      {isOpen && <div className={styles.menuDropdown}>{actions.map(renderAction)}</div>}
     </div>
   )
 }

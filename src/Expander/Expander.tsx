@@ -11,8 +11,8 @@ import { Tooltip } from '../Tooltip'
 
 interface ExpanderProps {
   title: string
+  tooltipContent?: string
   rightValue?: string
-  tooltipContent: string
   containerNoBorder?: boolean
   children: ReactNode
 }
@@ -20,9 +20,9 @@ interface ExpanderProps {
 export const Expander: React.FC<ExpanderProps> = ({
   title,
   tooltipContent = '',
-  rightValue,
+  rightValue = '',
+  containerNoBorder = false,
   children,
-  containerNoBorder,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -54,13 +54,7 @@ export const Expander: React.FC<ExpanderProps> = ({
               <Tooltip
                 content={tooltipContent}
               >
-                <Image
-                  className={styles.headerIcon}
-                  src={InfoIcon}
-                  width={16}
-                  height={16}
-                  alt='icon'
-                />
+                <InfoIcon />
               </Tooltip>
             )}
           </div>
@@ -68,7 +62,7 @@ export const Expander: React.FC<ExpanderProps> = ({
           <div className={styles.headerContentMobile}>
               <div className={styles.selectedCount}>{isOpen ? '' : rightValue}</div>
             <div className={isOpen ? styles.arrowStyle : ''}>
-              <Image src={DropdownIcon} width={16} height={16} alt='arrow' />
+              <DropdownIcon />
             </div>
           </div>
         </div>

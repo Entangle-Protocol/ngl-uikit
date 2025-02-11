@@ -5,35 +5,36 @@
   justify-content: center;
   min-height: 40px;
   padding: 8px 16px;
-  border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+  text-transform: uppercase;
+  width: fit-content;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  background: var(--M-900, #efeff0);
-  color: var(--M-100, #141416);
-  border: 1px solid var(--M-700, #d1d1d3);
+  background:#202020;
+  color:#919193;
+  border: 1px solid#d1d1d3;
 
   &:hover:not(.disabled) {
-    background: var(--M-800, #e4e4e5);
+    background: #e4e4e5;
   }
 
   &:active:not(.disabled) {
-    background: var(--M-700, #d1d1d3);
+    background: #d1d1d3;
   }
 
   &.primary {
-    background: var(--P-500, #0066FF);
+    background:#efeff0;
     color: white;
     border: none;
 
     &:hover:not(.disabled) {
-      background: var(--P-400, #1a75ff);
+      background:#efeff0;
     }
 
     &:active:not(.disabled) {
-      background: var(--P-600, #0052cc);
+      background:#efeff0;
     }
   }
 

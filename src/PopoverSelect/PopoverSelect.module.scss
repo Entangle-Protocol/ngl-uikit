@@ -5,30 +5,26 @@
 
 .dropdown {
   align-self: stretch;
-  border: 1px solid var(--M-300, #333335);
-  background: var(--M-100, #141416);
+  border: 1px solid #333335;
+  background:#141416;
   display: flex;
   width: 192px;
   padding: 16px 8px;
   flex-direction: column;
   overflow: hidden;
-  color: var(--M-900);
+  color: #EFEFF0;
   position: absolute;
   margin-top: 8px;
   z-index: 2;
   right: 50%;
   transform: translateX(50%);
-  font:
-    400 16px 'Neue Montreal',
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
   box-shadow: 0px 0px 24px 0px #121212;
+
   .selectedItem,
   .orderItem {
     &:hover {
-      background-color: var(--M-200);
+      background-color: #ffffff0d;
+      border-color: #ffffff33;
     }
   }
 }
@@ -37,12 +33,15 @@
   width: 16px;
   height: 16px;
 }
+
+
+.btnDropdown {
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
 .btnDropdown:hover {
   filter: brightness(1) invert(1);
-}
-.btnDropdown {
-  cursor: pointer;
-  transition: filter 0.2s ease;
 }
 
 .heading {
@@ -71,7 +70,7 @@
 
 .icon {
   font-size: 16px;
-  color: var(--M-900);
+  color: #EFEFF0;
 }
 
 .selectedItem {
@@ -88,5 +87,5 @@
   position: absolute;
   right: 16px;
   font-size: 16px;
-  color: var(--M-900);
+  color: #EFEFF0;
 }

@@ -17,9 +17,8 @@ export const Button: React.FC<ButtonProps> = ({
   primary = false,
   fullWidth = false,
 }) => {
-
-  const handleButtonClick = (e: React.MouseEvent) => {
-    if (e.currentTarget === e.target) {
+  const handleButtonClick = () => {
+    if (!disabled) {
       onClick()
     }
   }
@@ -35,16 +34,9 @@ export const Button: React.FC<ButtonProps> = ({
       role="button"
       tabIndex={disabled ? -1 : 0}
     >
-        {children && (
-          <div 
-            className={styles.childrenWrapper}
-            onClick={(e) => {
-              e.stopPropagation()
-            }}
-          >
-            {children}
-          </div>
-        )}
+      <div className={styles.childrenWrapper}>
+        {children}
+      </div>
     </div>
   )
 }

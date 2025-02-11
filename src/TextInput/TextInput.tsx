@@ -44,13 +44,24 @@ export const TextInput: React.FC<TextInputProps> = ({
 
   return (
     <div className={styles.content}>
-      {label && <div className={styles.label}>{label.text} <Tooltip content={label.tooltipContent}> <InfoIcon /> </Tooltip> </div>}
+      {label && (
+        <div className={styles.label}>
+          <span>{label.text}</span>
+          {label.tooltipContent && (
+            <Tooltip content={label.tooltipContent}>
+              <InfoIcon />
+            </Tooltip>
+          )}
+        </div>
+      )}
+
       <div className={styles.inputWrapper}>
         {leftAdornment && (
           <div className={styles.leftAdornment}>
             {leftAdornment}
           </div>
         )}
+
         <input
           type='text'
           placeholder={placeholder}
@@ -59,10 +70,11 @@ export const TextInput: React.FC<TextInputProps> = ({
           onChange={(e) => onChangeTextInput(e.target.value)}
           onKeyPress={handleKeyPress}
         />
+
         {button && (
-          <button 
-            className={styles.button} 
-            onClick={button.handleClick} 
+          <button
+            className={styles.button}
+            onClick={button.handleClick}
             type='button'
           >
             {button.label}

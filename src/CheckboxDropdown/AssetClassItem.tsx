@@ -11,25 +11,20 @@ export const AssetClassItem: React.FC<AssetClassItemProps> = ({
   isChecked,
   onCheckboxChange,
 }) => {
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
     onCheckboxChange(label)
   }
 
   return (
-    <div onClick={handleClick} className={styles.assetItem}>
+    <button onClick={handleClick} className={styles.assetItem}>
       <div className={styles.containerCheckbox}>
-        <Checkbox.Root
-          className={styles.checkbox}
-          checked={isChecked}
-          onCheckedChange={handleClick}
-        >
-          <Checkbox.Indicator>
-            {isChecked && <Image src={CheckboxIcon} alt='checkbox' width={20} height={20} />}
-          </Checkbox.Indicator>
+        <Checkbox.Root className={styles.checkbox} checked={isChecked}>
+          <Checkbox.Indicator>{isChecked && <CheckboxIcon />}</Checkbox.Indicator>
         </Checkbox.Root>
         <span className={styles.assetLabel}>{label}</span>
       </div>
       <span className={styles.assetCount}>{count}</span>
-    </div>
+    </button>
   )
 }

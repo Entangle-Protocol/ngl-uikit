@@ -64,8 +64,6 @@ export const PopoverSelect: React.FC<PopoverSelectProps> = ({
               key={item.id}
               label={item.label}
               isSelected={activeId === item.id}
-              hasCheck={item.hasCheck}
-              hasCursor={item.hasCursor}
               onClick={() => handleItemClick(item.id)}
               id={item.id}
             />
