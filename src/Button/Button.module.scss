@@ -1,0 +1,70 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: var(--M-900, #efeff0);
+  color: var(--M-100, #141416);
+  border: 1px solid var(--M-700, #d1d1d3);
+
+  &:hover:not(.disabled) {
+    background: var(--M-800, #e4e4e5);
+  }
+
+  &:active:not(.disabled) {
+    background: var(--M-700, #d1d1d3);
+  }
+
+  &.primary {
+    background: var(--P-500, #0066FF);
+    color: white;
+    border: none;
+
+    &:hover:not(.disabled) {
+      background: var(--P-400, #1a75ff);
+    }
+
+    &:active:not(.disabled) {
+      background: var(--P-600, #0052cc);
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+}
+
+.childrenWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:not(:has(*)) {
+    pointer-events: none;
+  }
+
+  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

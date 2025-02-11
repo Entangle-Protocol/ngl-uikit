@@ -1,0 +1,1 @@
+export { CubicText } from './CubicText'

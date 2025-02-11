@@ -26,7 +26,7 @@ export const AnimationContainer: React.FC<AnimationContainer> = ({
   children,
 }) => {
   return (
-    <div className={cx(styles.container, className)}>
+    <div className={cx(styles.root, className)}>
       {columns > 0 && rows > 0 && !hideAll && (
         <div className={styles.grid}>
           <div className={styles.verticalLines}>

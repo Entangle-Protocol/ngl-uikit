@@ -1,0 +1,43 @@
+.root {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+  margin: auto 0;
+  margin-left: auto;
+  padding: 4px 8px;
+  width: fit-content;
+
+  &.success {
+    background: #15241c;
+    color:  #1aaf56;
+  }
+
+  &.warning {
+    background: #2A191D;
+    color: #F44957;
+  }
+
+  &.deposit {
+    background: #15241c;
+    color: #1aaf56;
+  }
+
+  &.expiring {
+    background: #2c2019;
+    color: #ff8d30;
+  }
+}
+
+.icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+}
+
+.text {
+  align-self: stretch;
+  margin: auto 0;
+}

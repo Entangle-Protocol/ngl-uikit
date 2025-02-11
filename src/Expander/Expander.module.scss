@@ -1,0 +1,115 @@
+.root {
+  align-items: start;
+  align-self: stretch;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  cursor: pointer;
+}
+
+.root:hover {
+  background: var(--M-200);
+}
+
+.containerOpen {
+  background: var(--M-200);
+}
+
+.arrowStyle {
+  transform: rotate(180deg);
+}
+
+.header {
+  align-self: stretch;
+  border: 1px solid var(--M-400);
+  border-bottom: none;
+  z-index: 0;
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  text-transform: uppercase;
+  font:
+    14px Neue Montreal,
+    sans-serif;
+}
+
+.noBorder {
+  border: none;
+}
+
+.headerContent {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.title {
+  color: var(--M-800);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16.8px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  @include for-mobile {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.headerIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 16px;
+}
+
+.selectedCount {
+  color: var(--M-500);
+  text-align: right;
+  font-weight: 400;
+  line-height: 1;
+  flex: 1;
+}
+
+.borderNoOpen {
+  border: 1px solid var(--M-300);
+}
+.defaultBorder {
+  border: 1px solid var(--M-300);
+}
+
+.content {
+  align-self: stretch;
+  border: 1px solid var(--M-300);
+  border-top: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  padding: 0;
+  visibility: hidden;
+}
+
+.contentOpen {
+  max-height: 1000px;
+  opacity: 1;
+  padding: 16px;
+  visibility: visible;
+  transition: all 0.3s ease-in;
+}
+
+.bordeColor {
+  border-color: var(--M-900);
+}
+
+.headerContentMobile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}

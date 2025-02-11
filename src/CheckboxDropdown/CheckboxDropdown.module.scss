@@ -1,0 +1,176 @@
+.dropdown {
+  align-self: stretch;
+  border: 1px solid var(--M-300);
+  background: var(--M-100);
+  max-width: 296px;
+  font-family:
+    Neue Montreal,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  padding: 16px 24px;
+  margin-top: 8px;
+  position: absolute;
+
+  .assetItem:hover {
+    background: var(--M-200);
+  }
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.searchContainer {
+  width: 100%;
+}
+
+.searchBar {
+  align-items: center;
+  border-bottom: 1px solid var(--M-300);
+  display: flex;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--M-500);
+  padding: 8px 0;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.assetList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.assetItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 8px 8px;
+  margin-top: 8px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.selected {
+  background: var(--M-200);
+}
+
+.itemContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--M-900);
+}
+
+.assetIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.assetCount {
+  font-size: 14px;
+  color: var(--M-500);
+  line-height: 1;
+}
+
+.indicator {
+  width: 14px;
+  height: 16px;
+  object-fit: contain;
+  position: absolute;
+  right: 117px;
+  bottom: -4px;
+}
+
+.filterButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--M-900);
+  width: 100%;
+  gap: 4px;
+  margin-top: 16px;
+  padding: 8px;
+  font-size: 14px;
+  color: var(--M-200);
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+}
+
+.filterIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+.filterText {
+  margin: auto;
+}
+.searchInput {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  background: transparent;
+}
+
+.containerCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.CheckboxIcon {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  background-color: var(--M-900);
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+.dropdownBtn {
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--M-300);
+  background: var(--M-100);
+  align-self: stretch;
+  display: flex;
+  height: 40px;
+  gap: 4px;
+  overflow: hidden;
+  margin: auto 0;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.arrowStyle {
+  transform: rotate(180deg);
+}
+.dropdownBtn:hover {
+  filter: brightness(1) invert(1);
+  color: black;
+}
+.textDropdown {
+  color: var(--M-800);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.checkbox {
+  cursor: pointer;
+}
+
+.assetLabel {
+  color: #fff;
+}
