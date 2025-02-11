@@ -114,9 +114,11 @@
   height: 16px;
   object-fit: contain;
 }
+
 .filterText {
   margin: auto;
 }
+
 .searchInput {
   border: none;
   outline: none;
@@ -129,6 +131,7 @@
   align-items: center;
   gap: 8px;
 }
+
 .CheckboxIcon {
   display: flex;
   flex: 1;
@@ -139,6 +142,7 @@
   height: 20px;
   border-radius: 5px;
 }
+
 .dropdownBtn {
   justify-content: center;
   align-items: center;
@@ -153,13 +157,16 @@
   padding: 10px 12px;
   cursor: pointer;
 }
+
 .arrowStyle {
   transform: rotate(180deg);
 }
+
 .dropdownBtn:hover {
   filter: brightness(1) invert(1);
   color: black;
 }
+
 .textDropdown {
   color: var(--M-800);
   font-size: 14px;
@@ -167,8 +174,21 @@
   font-weight: 400;
   line-height: 20px;
 }
+
 .checkbox {
   cursor: pointer;
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  background-color: #EFEFF0;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+
+  &[data-state='checked'] {
+    border: none;
+  }
 }
 
 .assetLabel {

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './AssetClassDropdown.module.scss'
+import styles from './CheckboxDropdown.module.scss'
 import type { AssetClassFilterProps } from './types'
 import { FilterIcon } from '../icons'
 

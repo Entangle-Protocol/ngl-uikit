@@ -1,6 +1,6 @@
 {
   "name": "@entangle-protocol/ngl-uikit",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -19,6 +19,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.1.4",
     "@tanstack/react-table": "^8.20.6",
     "@tanstack/table-core": "^8.20.5",
     "@tippyjs/react": "^4.2.6",

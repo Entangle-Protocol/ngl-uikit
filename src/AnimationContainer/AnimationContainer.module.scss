@@ -2,7 +2,8 @@
   width: 100%;
   position: relative;
   height: 100%;
-  @include for-mobileBig {
+
+  @media (max-width: 768px) {
     margin-top: 0;
   }
 }
@@ -31,10 +32,6 @@
   width: 1px;
   height: 100%;
   border-left: 1px solid #202020;
-
-  // &:last-child {
-  // 	transform: translateX(1px);
-  // }
 }
 
 .horisontalLines_item {
@@ -48,7 +45,7 @@
   height: 100%;
   z-index: 3;
   overflow: hidden;
-  border: 1px solid var(--M-200);
+  border: 1px solid #202020;
 
   img {
     display: block;

@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './AssetClassDropdown.module.scss'
+import styles from './CheckboxDropdown.module.scss'
 import type { AssetClassItemProps } from './types'
-import Checkbox from 'react-custom-checkbox'
+import * as Checkbox from '@radix-ui/react-checkbox'
 import { CheckboxIcon } from '../icons'
 import Image from 'next/image'
 
@@ -18,31 +18,15 @@ export const AssetClassItem: React.FC<AssetClassItemProps> = ({
   return (
     <div onClick={handleClick} className={styles.assetItem}>
       <div className={styles.containerCheckbox}>
-        <Checkbox
-          size={20}
-          icon={
-            <div
-              className={styles.checkbox}
-              style={{
-                display: 'flex',
-                flex: 1,
-                alignSelf: 'stretch',
-                backgroundColor: '#EFEFF0',
-                alignItems: 'center',
-                width: '20px',
-                height: '20px',
-                borderRadius: '5px',
-              }}
-            >
-              <Image src={CheckboxIcon} alt='checkbox' width={20} height={20} />
-            </div>
-          }
-          borderColor={`${isChecked ? '' : '#EFEFF0'}`}
-          borderWidth={isChecked ? 0 : 2}
+        <Checkbox.Root
+          className={styles.checkbox}
           checked={isChecked}
-          onChange={handleClick}
-          onClick={handleClick}
-        />
+          onCheckedChange={handleClick}
+        >
+          <Checkbox.Indicator>
+            {isChecked && <Image src={CheckboxIcon} alt='checkbox' width={20} height={20} />}
+          </Checkbox.Indicator>
+        </Checkbox.Root>
         <span className={styles.assetLabel}>{label}</span>
       </div>
       <span className={styles.assetCount}>{count}</span>
