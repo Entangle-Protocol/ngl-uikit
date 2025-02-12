@@ -4,6 +4,7 @@ import styles from './PopoverSelect.module.scss'
 import { PopoverSelectItem } from './PopoverSelectItem'
 import { DropdownOrderIcon } from '../icons'
 import cx from 'classnames'
+
 interface PopoverSelectItem {
   id: number | string
   label: string
@@ -11,7 +12,7 @@ interface PopoverSelectItem {
   hasCursor?: boolean
 }
 
-interface PopoverSelectProps {
+export interface PopoverSelectProps {
   label: string
   items: PopoverSelectItem[]
   activeId?: number | string | null

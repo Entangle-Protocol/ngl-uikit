@@ -7,7 +7,7 @@ import { DropdownIcon } from '../icons'
 import { SearchInput } from '../SearchInput/SearchInput'
 import cx from 'classnames'
 
-interface CheckboxDropdownProps {
+export interface CheckboxDropdownProps {
   label: string
   items: { label: string; value: string; count: number }[]
   action: (selectedItems: string[]) => void

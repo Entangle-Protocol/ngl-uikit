@@ -12,7 +12,7 @@ interface PopoverMenuItem {
   icon?: React.ReactNode
 }
 
-interface PopoverMenuProps {
+export interface PopoverMenuProps {
   actions: PopoverMenuItem[]
   buttonIcon?: React.ReactNode
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import Tippy from '@tippyjs/react'
 import styles from './Tooltip.module.scss'
 
-interface TooltipProps {
+export interface TooltipProps {
   children: React.ReactNode
   content: React.ReactNode | string
   show?: boolean

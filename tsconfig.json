@@ -19,7 +19,10 @@
     "emitDeclarationOnly": false,
     "allowJs": true,
     "composite": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "types": ["react", "react-dom"],
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment"
   },
   "include": ["src/**/*", "src/types/*.d.ts"],
   "exclude": ["node_modules", "dist"]

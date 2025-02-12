@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './SearchInput.module.scss'
 import { SearchIcon } from '../icons'
 
-interface SearchInputProps {
+export interface SearchInputProps {
   placeholder: string
   value: string
   onSearch: (value: string) => void

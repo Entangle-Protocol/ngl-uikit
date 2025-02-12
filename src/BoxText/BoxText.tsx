@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './BoxText.module.scss'
 import cx from 'classnames'
 
-interface BoxTextProps {
+export interface BoxTextProps {
   children: React.ReactNode | string
 }
 

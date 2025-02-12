@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './Button.module.scss'
 import cx from 'classnames'
 
-interface ButtonProps {
+export interface ButtonProps {
   children: ReactNode | string
   onClick: () => void
   disabled?: boolean

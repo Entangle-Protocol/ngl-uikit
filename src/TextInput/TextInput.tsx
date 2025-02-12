@@ -10,7 +10,7 @@ interface TextInputButton {
   disabled?: boolean
 }
 
-interface TextInputProps {
+export interface TextInputProps {
   value: string
   onChangeTextInput: (value: string) => void
   leftAdornment?: React.ReactNode

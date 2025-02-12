@@ -16,10 +16,11 @@
   justify-content: center;
   align-items: center;
   gap: 4px;
-  border: 1px solid var(--M-300, #333335);
+  border: 1px solid #333335;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  color: var(--M-900, #efeff0);
+  color: #efeff0;
+  background-color: transparent;
   font-style: normal;
   font-weight: 700;
   line-height: 20px;
@@ -31,7 +32,7 @@
   }
 
   &:not(.disabled):hover {
-    background-color: var(--button-hover-bg, #f0f0f0);
+    background-color:#f0f0f0;
     color: black;
 
     .icon {
@@ -40,12 +41,12 @@
   }
 
   &.active {
-    background-color: var(--button-active-bg, #ddd);
+    background-color: #ddd;
     color: black;
   }
 
   &.disabled {
-    color: var(--button-disabled-color, #888);
+    color:#888;
     cursor: not-allowed;
   }
 

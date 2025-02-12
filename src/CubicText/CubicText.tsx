@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './CubicText.module.scss'
 
-interface CubicTextProps {
+export interface CubicTextProps {
   content: string
 }
 

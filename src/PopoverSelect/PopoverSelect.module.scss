@@ -91,7 +91,7 @@
 
 .actionButton {
   background: none;
-  border: 1px solid #323236;
+  border: 1px solid #B0B1B2;
   padding: 8px;
   cursor: pointer;
   display: flex;
@@ -101,7 +101,6 @@
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
   }
 
   &.active {

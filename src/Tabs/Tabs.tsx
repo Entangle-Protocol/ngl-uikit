@@ -12,7 +12,7 @@ interface TabButton {
   disabled?: boolean
 }
 
-interface TabsProps {
+export interface TabsProps {
   items: TabButton[]
   spacing?: 'tight' | 'spaced'
   itemsHeight?: 'normal' | 'small'
@@ -41,7 +41,7 @@ export const Tabs: React.FC<TabsProps> = ({
         [styles.spaced]: spacing === 'spaced',
       })}
     >
-      {items.map((item: TabButton) => (
+      {items?.map((item: TabButton) => (
         <button
           key={item.id}
           type='button'

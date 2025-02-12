@@ -3,7 +3,7 @@ import styles from './Badge.module.scss'
 import cx from 'classnames'
 import { CheckIcon, ExpiringIcon, WarningIcon } from '../icons'
 
-interface BadgeProps {
+export interface BadgeProps {
   children?: React.ReactNode
   color?: string
   icon?: React.ReactNode | null

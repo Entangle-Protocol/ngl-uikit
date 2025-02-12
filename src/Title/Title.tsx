@@ -5,14 +5,14 @@ import cx from 'classnames'
 type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 type TitleColor = 'white' | 'black' | 'gray'
 
-interface TitleProps {
+export interface TitleProps {
   children: React.ReactNode
   variant?: TitleVariant
   color?: TitleColor
   className?: string
 }
 
-const variantToElement: Record<TitleVariant, keyof JSX.IntrinsicElements> = {
+const variantToElement: Record<TitleVariant, keyof React.JSX.IntrinsicElements> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',

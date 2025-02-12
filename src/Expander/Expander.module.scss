@@ -14,28 +14,28 @@
 
 .containerOpen {
   background: #202020;
+  border: 1px solid #333335;
 }
 
 .arrowStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.rotate {
   transform: rotate(180deg);
 }
 
 .header {
   align-self: stretch;
-  border: 1px solid var(--M-400);
-  border-bottom: none;
+  border: none;
   z-index: 0;
   display: flex;
   width: 100%;
   padding: 16px;
   text-transform: uppercase;
-  font:
-    14px Neue Montreal,
-    sans-serif;
-}
-
-.noBorder {
-  border: none;
 }
 
 .headerContent {
@@ -79,13 +79,9 @@
 .borderNoOpen {
   border: 1px solid #333335;
 }
-.defaultBorder {
-  border: 1px solid #333335;
-}
 
 .content {
   align-self: stretch;
-  border: 1px solid #333335;
   border-top: none;
   max-height: 0;
   opacity: 0;

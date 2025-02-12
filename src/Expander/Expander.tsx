@@ -8,7 +8,7 @@ import { DropdownIcon } from '../icons'
 import { InfoIcon } from '../icons/InfoIcon'
 import { Tooltip } from '../Tooltip'
 
-interface ExpanderProps {
+export interface ExpanderProps {
   title: string
   tooltipContent?: string
   rightValue?: string
@@ -41,8 +41,7 @@ export const Expander: React.FC<ExpanderProps> = ({
         onClick={handleOpen}
         className={cx(
           styles.header,
-          { [styles.noBorder]: !isOpen },
-          { [styles.defaultBorder]: containerNoBorder && isOpen }
+          { [styles.defaultBorder]: true }
         )}
       >
         <div className={styles.headerContent}>
@@ -54,11 +53,9 @@ export const Expander: React.FC<ExpanderProps> = ({
                 <InfoIcon />
               </Tooltip>
             )}
-          </div>
 
-          <div className={styles.headerContentMobile}>
             <div className={styles.selectedCount}>{isOpen ? '' : rightValue}</div>
-            <div className={isOpen ? styles.arrowStyle : ''}>
+            <div className={cx(styles.arrowStyle, { [styles.rotate]: isOpen })}>
               <DropdownIcon />
             </div>
           </div>
