@@ -1,7 +1,6 @@
 export * from './Tabs'
 export * from './CornersFrame'
 export * from './Table'
-export * from './Breadcrumbs'
 export * from './Title'
 export * from './BoxText'
 export * from './Button'
