@@ -56,11 +56,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       )}
 
       <div className={styles.inputWrapper}>
-        {leftAdornment && (
-          <div className={styles.leftAdornment}>
-            {leftAdornment}
-          </div>
-        )}
+        {leftAdornment && <div className={styles.leftAdornment}>{leftAdornment}</div>}
 
         <input
           type='text'
@@ -72,11 +68,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         />
 
         {button && (
-          <button
-            className={styles.button}
-            onClick={button.handleClick}
-            type='button'
-          >
+          <button className={styles.button} onClick={button.handleClick} type='button'>
             {button.label}
           </button>
         )}

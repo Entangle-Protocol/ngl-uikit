@@ -8,11 +8,7 @@ interface SearchInputProps {
   onSearch: (value: string) => void
 }
 
-export const SearchInput: React.FC<SearchInputProps> = ({
-  placeholder,
-  value,
-  onSearch,
-}) => {
+export const SearchInput: React.FC<SearchInputProps> = ({ placeholder, value, onSearch }) => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value)
   }

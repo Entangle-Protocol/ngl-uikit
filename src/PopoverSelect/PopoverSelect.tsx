@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import styles from './PopoverSelect.module.scss'
 import { PopoverSelectItem } from './PopoverSelectItem'
 import { DropdownOrderIcon } from '../icons'
-
+import cx from 'classnames'
 interface PopoverSelectItem {
   id: number | string
   label: string
@@ -15,7 +15,7 @@ interface PopoverSelectProps {
   label: string
   items: PopoverSelectItem[]
   activeId?: number | string | null
-  onSelect: (id: number | string) => void
+  action: (id: number | string) => void
   buttonIcon?: React.ReactNode
 }
 
@@ -23,14 +23,14 @@ export const PopoverSelect: React.FC<PopoverSelectProps> = ({
   label,
   items,
   activeId,
-  onSelect,
-  buttonIcon = <DropdownOrderIcon />
+  action,
+  buttonIcon = <DropdownOrderIcon />,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const dropdownRef = useRef<HTMLDivElement | null>(null)
 
   const handleItemClick = (id: number | string) => {
-    onSelect(id)
+    action(id)
     setIsOpen(false)
   }
 
@@ -53,7 +53,10 @@ export const PopoverSelect: React.FC<PopoverSelectProps> = ({
 
   return (
     <div className={styles.root} ref={dropdownRef}>
-      <div className={styles.btnDropdown} onClick={handleOpenClick}>
+      <div
+        className={cx(styles.actionButton, { [styles.active]: isOpen })}
+        onClick={handleOpenClick}
+      >
         {buttonIcon}
       </div>
       {isOpen && (

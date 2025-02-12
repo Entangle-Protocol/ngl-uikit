@@ -12,12 +12,12 @@
   width: fit-content;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  background:#202020;
-  color:#919193;
-  border: 1px solid#d1d1d3;
+  background: #202020;
+  color: #fff;
 
   &:hover:not(.disabled) {
     background: #e4e4e5;
+    color: #000;
   }
 
   &:active:not(.disabled) {
@@ -25,16 +25,16 @@
   }
 
   &.primary {
-    background:#efeff0;
-    color: white;
+    background: #efeff0;
+    color: #000;
     border: none;
 
     &:hover:not(.disabled) {
-      background:#efeff0;
+      background: #c5c5c5;
     }
 
     &:active:not(.disabled) {
-      background:#efeff0;
+      background: #efeff0;
     }
   }
 

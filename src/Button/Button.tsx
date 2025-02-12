@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import styles from './Button.module.scss'
 import cx from 'classnames'
 
@@ -24,19 +25,17 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <div 
+    <div
       className={cx(styles.root, {
         [styles.disabled]: disabled,
         [styles.primary]: primary,
         [styles.fullWidth]: fullWidth,
       })}
       onClick={handleButtonClick}
-      role="button"
+      role='button'
       tabIndex={disabled ? -1 : 0}
     >
-      <div className={styles.childrenWrapper}>
-        {children}
-      </div>
+      <div className={styles.childrenWrapper}>{children}</div>
     </div>
   )
 }

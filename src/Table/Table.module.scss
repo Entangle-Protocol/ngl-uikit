@@ -1,11 +1,11 @@
 .table {
-  border: 1px solid var(--M-200);
+  border: 1px solid #202020;
   border-spacing: 0;
   border-radius: 12px;
 }
 
 .tr {
-  border-bottom: 1px solid var(--M-200);
+  border-bottom: 1px solid #202020;
 }
 
 .th,
@@ -40,7 +40,7 @@
   color: inherit;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ffffff1a;
   }
 }
 
@@ -59,7 +59,7 @@
   background: #1e1e1e;
   border-radius: 8px;
   padding: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px #0000001a;
   z-index: 10;
   min-width: 150px;
 }
@@ -69,7 +69,7 @@
   background: none;
   border: none;
   padding: 8px 12px;
-  color: white;
+  color: #efeff0;
   cursor: pointer;
   text-align: left;
   border-radius: 4px;
@@ -81,7 +81,7 @@
   text-decoration: none;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ffffff1a;
   }
 }
 

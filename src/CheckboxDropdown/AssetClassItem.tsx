@@ -3,7 +3,6 @@ import styles from './CheckboxDropdown.module.scss'
 import type { AssetClassItemProps } from './types'
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { CheckboxIcon } from '../icons'
-import Image from 'next/image'
 
 export const AssetClassItem: React.FC<AssetClassItemProps> = ({
   label,

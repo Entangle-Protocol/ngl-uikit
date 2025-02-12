@@ -1,9 +1,8 @@
 'use client'
 
-import React, { ReactNode, useState } from 'react'
+import React, { useState, type ReactNode } from 'react'
 import styles from './Expander.module.scss'
 import cx from 'classnames'
-import Image from 'next/image'
 import { CornersFrame } from '../CornersFrame'
 import { DropdownIcon } from '../icons'
 import { InfoIcon } from '../icons/InfoIcon'
@@ -51,16 +50,14 @@ export const Expander: React.FC<ExpanderProps> = ({
             <div className={styles.title}>{title}</div>
 
             {tooltipContent && (
-              <Tooltip
-                content={tooltipContent}
-              >
+              <Tooltip content={tooltipContent}>
                 <InfoIcon />
               </Tooltip>
             )}
           </div>
 
           <div className={styles.headerContentMobile}>
-              <div className={styles.selectedCount}>{isOpen ? '' : rightValue}</div>
+            <div className={styles.selectedCount}>{isOpen ? '' : rightValue}</div>
             <div className={isOpen ? styles.arrowStyle : ''}>
               <DropdownIcon />
             </div>

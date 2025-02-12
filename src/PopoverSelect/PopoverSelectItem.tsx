@@ -18,13 +18,14 @@ export const PopoverSelectItem: React.FC<PopoverSelectItemProps> = ({
   const itemClass = isSelected ? styles.selectedItem : styles.orderItem
 
   return (
-    <div className={itemClass} role='button' onClick={onClick} tabIndex={typeof id === 'number' ? id : 0}>
+    <div
+      className={itemClass}
+      role='button'
+      onClick={onClick}
+      tabIndex={typeof id === 'number' ? id : 0}
+    >
       <div className={styles.orderItemContent}>
-        {isSelected ? (
-          <CheckOrderIcon />
-        ) : (
-          <div className={styles.block} />
-        )}
+        {isSelected ? <CheckOrderIcon /> : <div className={styles.block} />}
         <div>{label}</div>
       </div>
     </div>

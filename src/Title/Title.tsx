@@ -18,26 +18,19 @@ const variantToElement: Record<TitleVariant, keyof JSX.IntrinsicElements> = {
   h3: 'h3',
   h4: 'h4',
   h5: 'h5',
-  h6: 'h6'
+  h6: 'h6',
 }
 
 export const Title: React.FC<TitleProps> = ({
   children,
   variant = 'h1',
   color = 'white',
-  className
+  className,
 }) => {
   const Element = variantToElement[variant]
 
   return (
-    <Element 
-      className={cx(
-        styles.root,
-        styles[variant],
-        styles[color],
-        className
-      )}
-    >
+    <Element className={cx(styles.root, styles[variant], styles[color], className)}>
       {children}
     </Element>
   )

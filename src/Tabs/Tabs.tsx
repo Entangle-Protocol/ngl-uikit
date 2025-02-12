@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import cx from 'classnames'
 import styles from './Tabs.module.scss'
 
@@ -27,7 +27,6 @@ export const Tabs: React.FC<TabsProps> = ({
   activeItem,
   onChange,
 }) => {
-
   const handleToggle = (id: string, disabled?: boolean) => {
     if (disabled) {
       return

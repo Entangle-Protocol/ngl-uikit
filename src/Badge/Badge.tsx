@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Badge.module.scss'
 import cx from 'classnames'
-import { CheckIcon, ExpiringIcon, DepositIcon, WarningIcon } from '../icons'
+import { CheckIcon, ExpiringIcon, WarningIcon } from '../icons'
 
 interface BadgeProps {
   children?: React.ReactNode
@@ -16,20 +16,27 @@ export const Badge: React.FC<BadgeProps> = ({
   color = '',
   icon = null,
 }) => {
-  const iconToShow = icon || (
-    variant === 'success' ? <CheckIcon /> :
-    variant === 'expiring' ? <ExpiringIcon /> :
-    variant === 'warning' ? <WarningIcon /> :
-    null
-  )
+  const iconToShow =
+    icon ||
+    (variant === 'success' ? (
+      <CheckIcon />
+    ) : variant === 'expiring' ? (
+      <ExpiringIcon />
+    ) : variant === 'warning' ? (
+      <WarningIcon />
+    ) : null)
 
-  const textToShow = children || (
-    variant === 'success' ? 'Success' :
-    variant === 'expiring' ? 'Expiring' :
-    variant === 'deposit' ? 'Deposit' :
-    variant === 'warning' ? 'Warning' :
-    ''
-  )
+  const textToShow =
+    children ||
+    (variant === 'success'
+      ? 'Success'
+      : variant === 'expiring'
+        ? 'Expiring'
+        : variant === 'deposit'
+          ? 'Deposit'
+          : variant === 'warning'
+            ? 'Warning'
+            : '')
 
   return (
     <div
@@ -37,7 +44,7 @@ export const Badge: React.FC<BadgeProps> = ({
         [styles.success]: variant === 'success',
         [styles.expiring]: variant === 'expiring',
         [styles.warning]: variant === 'warning',
-        [styles.deposit]: variant === 'deposit'
+        [styles.deposit]: variant === 'deposit',
       })}
       style={{ backgroundColor: color }}
     >

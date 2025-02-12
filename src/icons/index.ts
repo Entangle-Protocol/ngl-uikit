@@ -7,7 +7,5 @@ export * from './CheckOrderIcon'
 export * from './OptionDotsIcon'
 export * from './CheckIcon'
 export * from './ExpiringIcon'
-export * from './DepositIcon'
 export * from './WarningIcon'
 export * from './InfoIcon'
-

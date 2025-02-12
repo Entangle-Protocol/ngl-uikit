@@ -3,13 +3,14 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './CheckboxDropdown.module.scss'
 import { AssetClassItem } from './AssetClassItem'
 import { AssetClassFilter } from './AssetClassFilter'
-import { DropdownIcon, SearchIcon } from '../icons'
+import { DropdownIcon } from '../icons'
 import { SearchInput } from '../SearchInput/SearchInput'
 import cx from 'classnames'
+
 interface CheckboxDropdownProps {
   label: string
   items: { label: string; value: string; count: number }[]
-  onApply: (selectedItems: string[]) => void
+  action: (selectedItems: string[]) => void
   withSearch?: boolean
   searchPlaceholder?: string
 }
@@ -17,7 +18,7 @@ interface CheckboxDropdownProps {
 export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
   label,
   items,
-  onApply,
+  action,
   withSearch = false,
   searchPlaceholder = '',
 }) => {
@@ -37,7 +38,7 @@ export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
   }
 
   const handleApplyFilter = () => {
-    onApply(selectedAssets)
+    action(selectedAssets)
     setIsOpen(false)
   }
 

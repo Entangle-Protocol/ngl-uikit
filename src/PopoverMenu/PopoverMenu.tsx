@@ -24,10 +24,6 @@ export const PopoverMenu: React.FC<PopoverMenuProps> = ({
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
-  if (!actions.length) {
-    return null
-  }
-
   const handleToggle = () => {
     setIsOpen((prev) => !prev)
   }
@@ -44,6 +40,10 @@ export const PopoverMenu: React.FC<PopoverMenuProps> = ({
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  if (!actions.length) {
+    return null
+  }
 
   const handleItemClick = (action: PopoverMenuItem) => {
     if (action.type === 'button' && typeof action.action === 'function') {
