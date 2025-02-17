@@ -12,6 +12,7 @@ import clsx from 'clsx'
 /**
  * Selectable item with checkbox for dropdown list
  */
+
 export const AssetClassItem: React.FC<AssetClassItemProps> = ({
   label,
   count,
