@@ -1,5 +1,4 @@
 name: Release
-
 on:
   workflow_dispatch:
   push:
@@ -17,22 +16,28 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+        
       - name: Mark repository as safe
         run: git config --global --add safe.directory /__w/ngl-uikit/ngl-uikit
-
+        
       - name: Set Git remote URL
         run: git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Entangle-Protocol/ngl-uikit.git
-
-      - name: Configure npm authentication
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+          
       - name: Install dependencies
         run: npm install
-
+        
       - name: Build project
         run: npm run build
-
+        
       - name: Run semantic-release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
