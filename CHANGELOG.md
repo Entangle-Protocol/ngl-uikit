@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/Entangle-Protocol/ngl-uikit/compare/v1.0.4...v1.0.5) (2025-02-17)
+
+
+### Bug Fixes
+
+* **release:** plugin for collecting scss into one major css file for build ([5b82b26](https://github.com/Entangle-Protocol/ngl-uikit/commit/5b82b261cf767150b0564000df669693cfd3426a))
+
 ## [1.0.4](https://github.com/Entangle-Protocol/ngl-uikit/compare/v1.0.3...v1.0.4) (2025-02-17)
 
 
