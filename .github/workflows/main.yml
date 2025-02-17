@@ -19,7 +19,7 @@ jobs:
         run: git config --global --add safe.directory /__w/ngl-uikit/ngl-uikit
 
       - name: Set Git remote URL
-        run: git remote set-url origin https://${{ secrets.GITHUB_PAT }}@github.com/Entangle-Protocol/ngl-uikit.git
+        run: git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Entangle-Protocol/ngl-uikit.git
 
       - name: Configure npm authentication
         run: |
