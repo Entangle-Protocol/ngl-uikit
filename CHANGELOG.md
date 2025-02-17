@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Entangle-Protocol/ngl-uikit/compare/v1.0.2...v1.0.3) (2025-02-17)
+
+
+### Bug Fixes
+
+* **release:** release code fixes, spaces added where required ([28205b0](https://github.com/Entangle-Protocol/ngl-uikit/commit/28205b07827f4e100b54011054a041d7f2f6a43c))
+
 ## [1.0.2](https://github.com/Entangle-Protocol/ngl-uikit/compare/v1.0.1...v1.0.2) (2025-02-17)
 
 
