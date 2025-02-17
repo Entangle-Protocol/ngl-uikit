@@ -2,6 +2,11 @@ import React from 'react'
 import styles from './PopoverSelect.module.scss'
 import { CheckOrderIcon } from '../icons'
 
+/**
+ * @group Components
+ * @category PopoverSelect
+ */
+
 interface PopoverSelectItemProps {
   label: string
   isSelected?: boolean

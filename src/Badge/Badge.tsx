@@ -1,14 +1,41 @@
 import React from 'react'
 import styles from './Badge.module.scss'
-import cx from 'classnames'
+import clsx from 'clsx'
 import { CheckIcon, ExpiringIcon, WarningIcon } from '../icons'
 
+/**
+ * Status badge component with icons and variants
+ */
 export interface BadgeProps {
+  /** Badge content (overrides default variant text) */
   children?: React.ReactNode
+  /** Custom background color */
   color?: string
+  /** Custom icon element (overrides default variant icon) */
   icon?: React.ReactNode | null
+  /** Badge style variant */
   variant?: 'success' | 'expiring' | 'deposit' | 'warning'
 }
+
+/**
+ * Badge component for displaying status or information
+ * @example
+ * ```tsx
+ * <Badge variant="success">Completed</Badge>
+ * 
+ * <Badge 
+ *   variant="warning" 
+ *   icon={<CustomIcon />}
+ * />
+ * 
+ * <Badge 
+ *   color="#6E56CF"
+ *   icon={<CustomIcon />}
+ * >
+ *   Custom Badge
+ * </Badge>
+ * ```
+ */
 
 export const Badge: React.FC<BadgeProps> = ({
   children,
@@ -40,7 +67,7 @@ export const Badge: React.FC<BadgeProps> = ({
 
   return (
     <div
-      className={cx(styles.root, {
+      className={clsx(styles.root, {
         [styles.success]: variant === 'success',
         [styles.expiring]: variant === 'expiring',
         [styles.warning]: variant === 'warning',

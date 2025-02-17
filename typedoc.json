@@ -1,0 +1,23 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs",
+  "name": "NGL UI Kit Documentation",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "theme": "hierarchy",
+  "includeVersion": true,
+  "hideGenerator": true,
+  "readme": "README.md",
+  "exclude": [
+    "**/node_modules/**",
+    "**/*.stories.tsx",
+    "**/*.test.tsx",
+    "**/*.spec.tsx",
+    "**/dist/**"
+  ],
+  "plugin": ["typedoc-theme-hierarchy"],
+  "navigationLinks": {
+    "Components": "modules.html"
+  }
+} 

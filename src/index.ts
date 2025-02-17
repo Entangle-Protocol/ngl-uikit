@@ -1,3 +1,10 @@
+/**
+ * NGL UI Kit - React components library
+ * @packageDocumentation
+ * @module NGL UI Kit
+ * @preferred
+ */
+
 export * from './Tabs'
 export * from './CornersFrame'
 export * from './Table'

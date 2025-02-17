@@ -1,1 +1,1 @@
-export { CubicText } from './CubicText'
+export * from './CubicText'

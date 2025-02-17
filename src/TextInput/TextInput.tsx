@@ -1,8 +1,13 @@
 import React from 'react'
 import styles from './TextInput.module.scss'
-import cx from 'classnames'
+import clsx from 'clsx'
 import { Tooltip } from '../Tooltip'
 import { InfoIcon } from '../icons/InfoIcon'
+
+/**
+ * @group Components
+ * @category TextInput
+ */
 
 interface TextInputButton {
   label: string
@@ -10,29 +15,51 @@ interface TextInputButton {
   disabled?: boolean
 }
 
+/**
+ * Text input with optional icon and label
+ */
 export interface TextInputProps {
+  /** Input value */
   value: string
+  /** Value change handler */
   onChangeTextInput: (value: string) => void
+  /** Left side icon or element */
   leftAdornment?: React.ReactNode
+  /** Action button configuration */
   button?: TextInputButton
+  /** Placeholder text */
   placeholder?: string
+  /** Use primary style */
   primary?: boolean
+  /** Label configuration */
   label?: {
     text: string
-    tooltipContent: string
+    tooltip?: string
   }
 }
 
+/**
+ * Text input component
+ * @example
+ * ```tsx
+ * <TextInput
+ *   value={text}
+ *   onChangeTextInput={setText}
+ *   placeholder="Enter value"
+ *   label={{ text: "Amount", tooltip: "Enter amount in ETH" }}
+ * />
+ * ```
+ */
 export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChangeTextInput,
+  placeholder = 'e.g. 09876.3456',
   leftAdornment,
   button,
-  placeholder = 'e.g. 09876.3456',
   primary = false,
   label = {
     text: '',
-    tooltipContent: '',
+    tooltip: '',
   },
 }) => {
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -43,12 +70,12 @@ export const TextInput: React.FC<TextInputProps> = ({
   }
 
   return (
-    <div className={styles.content}>
+    <div className={clsx(styles.content)}>
       {label && (
         <div className={styles.label}>
           <span>{label.text}</span>
-          {label.tooltipContent && (
-            <Tooltip content={label.tooltipContent}>
+          {label.tooltip && (
+            <Tooltip content={label.tooltip}>
               <InfoIcon />
             </Tooltip>
           )}
@@ -59,9 +86,9 @@ export const TextInput: React.FC<TextInputProps> = ({
         {leftAdornment && <div className={styles.leftAdornment}>{leftAdornment}</div>}
 
         <input
-          type='text'
+          type="text"
           placeholder={placeholder}
-          className={cx(styles.input, { [styles.primary]: primary })}
+          className={clsx(styles.input, { [styles.primary]: primary })}
           value={value}
           onChange={(e) => onChangeTextInput(e.target.value)}
           onKeyPress={handleKeyPress}

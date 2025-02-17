@@ -2,21 +2,46 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './PopoverMenu.module.scss'
 import { OptionDotsIcon } from '../icons'
-import cx from 'classnames'
+import clsx from 'clsx'
 
+/**
+ * Menu item configuration
+ */
 interface PopoverMenuItem {
+  /** Unique identifier */
   id: number | string
+  /** Menu item text */
   text: string
+  /** Item type - link or button */
   type: 'link' | 'button'
+  /** Click handler or URL */
   action: string | (() => void)
+  /** Optional icon element */
   icon?: React.ReactNode
 }
 
+/**
+ * Dropdown menu with custom actions
+ */
 export interface PopoverMenuProps {
+  /** Array of menu items */
   actions: PopoverMenuItem[]
+  /** Custom trigger button icon */
   buttonIcon?: React.ReactNode
 }
 
+/**
+ * Popover menu component
+ * @example
+ * ```tsx
+ * <PopoverMenu
+ *   actions={[
+ *     { id: 1, text: 'Edit', type: 'button', action: () => {} },
+ *     { id: 2, text: 'View', type: 'link', action: '/view' }
+ *   ]}
+ * />
+ * ```
+ */
 export const PopoverMenu: React.FC<PopoverMenuProps> = ({
   actions,
   buttonIcon = <OptionDotsIcon />,
@@ -79,7 +104,7 @@ export const PopoverMenu: React.FC<PopoverMenuProps> = ({
   return (
     <div className={styles.root} ref={menuRef}>
       <button
-        className={cx(styles.actionButton, { [styles.active]: isOpen })}
+        className={clsx(styles.actionButton, { [styles.active]: isOpen })}
         onClick={handleToggle}
       >
         {buttonIcon}

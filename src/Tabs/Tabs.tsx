@@ -1,25 +1,55 @@
 'use client'
 
 import React from 'react'
-import cx from 'classnames'
+import clsx from 'clsx'
 import styles from './Tabs.module.scss'
 
+/**
+ * Tab button configuration
+ */
 interface TabButton {
+  /** Unique identifier */
   id: string
+  /** Display text */
   label: string
+  /** Button value */
   value: string
+  /** Optional icon element */
   icon?: React.ReactNode
+  /** Disable tab button */
   disabled?: boolean
 }
 
+/**
+ * Tabs component for navigation and content switching
+ */
 export interface TabsProps {
+  /** Array of tab items */
   items: TabButton[]
+  /** Tab spacing style */
   spacing?: 'tight' | 'spaced'
+  /** Tab height style */
   itemsHeight?: 'normal' | 'small'
+  /** Currently active tab id */
   activeItem?: string
+  /** Tab change handler */
   onChange?: (id: string) => void
 }
 
+/**
+ * Navigation tabs component
+ * @example
+ * ```tsx
+ * <Tabs
+ *   items={[
+ *     { id: 'tab1', label: 'First Tab', value: '1' },
+ *     { id: 'tab2', label: 'Second Tab', value: '2' }
+ *   ]}
+ *   activeItem="tab1"
+ *   onChange={(id) => setActiveTab(id)}
+ * />
+ * ```
+ */
 export const Tabs: React.FC<TabsProps> = ({
   items,
   spacing = 'spaced',
@@ -36,7 +66,7 @@ export const Tabs: React.FC<TabsProps> = ({
 
   return (
     <div
-      className={cx(styles.root, {
+      className={clsx(styles.root, {
         [styles.tight]: spacing === 'tight',
         [styles.spaced]: spacing === 'spaced',
       })}
@@ -45,7 +75,7 @@ export const Tabs: React.FC<TabsProps> = ({
         <button
           key={item.id}
           type='button'
-          className={cx(styles.toggleButton, {
+          className={clsx(styles.toggleButton, {
             [styles.active]: activeItem === item.id,
             [styles.disabled]: item.disabled,
             [styles.small]: itemsHeight === 'small',
@@ -55,7 +85,7 @@ export const Tabs: React.FC<TabsProps> = ({
         >
           {item.icon && (
             <span
-              className={cx(styles.icon, {
+              className={clsx(styles.icon, {
                 [styles.active]: activeItem === item.id,
                 [styles.disabled]: item.disabled,
               })}

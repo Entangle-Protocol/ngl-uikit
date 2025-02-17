@@ -206,20 +206,29 @@
 }
 
 .checkbox {
-  cursor: pointer;
-  display: flex;
-  flex: 1;
-  align-self: stretch;
-  align-items: center;
   width: 20px;
   height: 20px;
+  border: 1px solid #333335;
   border-radius: 5px;
-  border: 1px solid #efeff0;
-  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
 
-  &[data-state='checked'] {
+  &:hover {
+    border-color: #efeff0;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: #141416;
+  }
+
+  &.checked {
     background-color: #efeff0;
-    border: none;
   }
 }
 

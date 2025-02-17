@@ -3,30 +3,65 @@ import React, { useEffect, useState } from 'react'
 import styles from './Table.module.scss'
 import type { ColumnDef } from '@tanstack/table-core'
 import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
-import cn from 'classnames'
+import clsx from 'clsx'
 import { ActionCell } from './ActionCell'
 
 export interface ActionItem {
+  /** Unique identifier */
   id: number
+  /** Action type */
   type: 'link' | 'button'
+  /** Click handler or URL */
   action: (() => void) | string
+  /** Optional icon */
   icon?: string
+  /** Optional text */
   text?: string
 }
 
+/**
+ * Data table with sorting and custom cell rendering
+ */
+
 export interface TableProps<T> {
+  /** Table data array */
   data: T[]
+  /** Column configurations */
   columns: ColumnDef<T, any>[]
+  /** Hide table header */
   isHeadHidden?: boolean
+  /** Additional table class name */
   tableClassName?: string
+  /** Additional thead class name */
   theadClassName?: string
+  /** Additional td class name */
   tdClassName?: string
+  /** Additional tr class name */
   trClassName?: string
+  /** Additional th class name */
   thClassname?: string
+  /** Additional tbody class name */
   tbodyClassName?: string
+  /** Optional action buttons */
   actions?: ActionItem[]
 }
 
+/**
+ * Table component with sorting and action buttons
+ * @example
+ * ```tsx
+ * <Table
+ *   data={users}
+ *   columns={[
+ *     { id: 'name', header: 'Name', cell: (row) => row.getValue() },
+ *     { id: 'age', header: 'Age', cell: (row) => row.getValue() }
+ *   ]}
+ *   actions={[
+ *     { id: 1, type: 'button', text: 'Edit', action: () => {} }
+ *   ]}
+ * />
+ * ```
+ */
 export const Table = function <T>({
   data,
   columns: userColumns,
@@ -75,13 +110,13 @@ export const Table = function <T>({
   })
 
   return (
-    <table className={cn(styles.table, tableClassName)}>
+    <table className={clsx(styles.table, tableClassName)}>
       {!isHeadHidden && (
-        <thead className={cn(styles.theead, theadClassName)}>
+        <thead className={clsx(styles.theead, theadClassName)}>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr className={cn(styles.tr, trClassName)} key={headerGroup.id}>
+            <tr className={clsx(styles.tr, trClassName)} key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th className={cn(styles.th, thClassname)} key={header.id}>
+                <th className={clsx(styles.th, thClassname)} key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(header.column.columnDef.header, header.getContext())}
@@ -91,11 +126,11 @@ export const Table = function <T>({
           ))}
         </thead>
       )}
-      <tbody className={cn(styles.tbody, tbodyClassName)}>
+      <tbody className={clsx(styles.tbody, tbodyClassName)}>
         {table.getRowModel().rows.map((row) => (
-          <tr className={cn(styles.tr, trClassName)} key={row.id}>
+          <tr className={clsx(styles.tr, trClassName)} key={row.id}>
             {row.getVisibleCells().map((cell) => (
-              <td className={cn(styles.td, tdClassName)} key={cell.id}>
+              <td className={clsx(styles.td, tdClassName)} key={cell.id}>
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>
             ))}

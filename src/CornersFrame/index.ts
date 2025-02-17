@@ -1,1 +1,1 @@
-export { CornersFrame } from './CornersFrame'
+export * from './CornersFrame'

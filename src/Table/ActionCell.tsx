@@ -3,6 +3,11 @@ import Image from 'next/image'
 import type { ActionItem } from './Table'
 import styles from './Table.module.scss'
 
+/**
+ * @group Components
+ * @category Table
+ */
+
 interface ActionCellProps {
   actions: ActionItem[]
   isOpen: boolean

@@ -3,6 +3,11 @@ import styles from './CheckboxDropdown.module.scss'
 import type { AssetClassFilterProps } from './types'
 import { FilterIcon } from '../icons'
 
+/**
+ * @group Components
+ * @category AssetClassFilter
+ */
+
 export const AssetClassFilter: React.FC<AssetClassFilterProps> = ({
   filterCount,
   onApply,

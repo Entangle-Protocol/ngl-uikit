@@ -3,22 +3,53 @@ import React, { useEffect, useRef } from 'react'
 import styles from './PopoverSelect.module.scss'
 import { PopoverSelectItem } from './PopoverSelectItem'
 import { DropdownOrderIcon } from '../icons'
-import cx from 'classnames'
+import clsx from 'clsx'
 
+/**
+ * Configuration for select item
+ */
 interface PopoverSelectItem {
+  /** Unique identifier */
   id: number | string
+  /** Item display text */
   label: string
+  /** Show checkmark */
   hasCheck?: boolean
+  /** Show cursor */
   hasCursor?: boolean
 }
 
+/**
+ * Dropdown select with custom items
+ */
 export interface PopoverSelectProps {
+  /** Dropdown label */
   label: string
+  /** List of selectable items */
   items: PopoverSelectItem[]
+  /** Currently selected item id */
   activeId?: number | string | null
+  /** Selection change handler */
   action: (id: number | string) => void
+  /** Custom dropdown icon */
   buttonIcon?: React.ReactNode
 }
+
+/**
+ * Dropdown select component
+ * @example
+ * ```tsx
+ * <PopoverSelect
+ *   label="Sort by"
+ *   items={[
+ *     { id: 1, label: 'Name' },
+ *     { id: 2, label: 'Date' }
+ *   ]}
+ *   activeId={1}
+ *   action={(id) => handleSort(id)}
+ * />
+ * ```
+ */
 
 export const PopoverSelect: React.FC<PopoverSelectProps> = ({
   label,
@@ -55,7 +86,7 @@ export const PopoverSelect: React.FC<PopoverSelectProps> = ({
   return (
     <div className={styles.root} ref={dropdownRef}>
       <div
-        className={cx(styles.actionButton, { [styles.active]: isOpen })}
+        className={clsx(styles.actionButton, { [styles.active]: isOpen })}
         onClick={handleOpenClick}
       >
         {buttonIcon}

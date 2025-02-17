@@ -2,11 +2,29 @@ import React from 'react'
 import styles from './SearchInput.module.scss'
 import { SearchIcon } from '../icons'
 
+/**
+ * Search input with icon and debounced onChange
+ */
 export interface SearchInputProps {
-  placeholder: string
+  /** Input placeholder text */
+  placeholder?: string
+  /** Current input value */
   value: string
+  /** Search callback function */
   onSearch: (value: string) => void
 }
+
+/**
+ * Search input component
+ * @example
+ * ```tsx
+ * <SearchInput
+ *   placeholder="Search..."
+ *   value={searchTerm}
+ *   onSearch={setSearchTerm}
+ * />
+ * ```
+ */
 
 export const SearchInput: React.FC<SearchInputProps> = ({ placeholder, value, onSearch }) => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {

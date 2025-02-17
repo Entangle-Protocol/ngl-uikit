@@ -2,20 +2,37 @@
 
 import React, { useState, type ReactNode } from 'react'
 import styles from './Expander.module.scss'
-import cx from 'classnames'
+import clsx from 'clsx'
 import { CornersFrame } from '../CornersFrame'
 import { DropdownIcon } from '../icons'
 import { InfoIcon } from '../icons/InfoIcon'
 import { Tooltip } from '../Tooltip'
 
+/**
+ * Expandable section with header and animated content
+ */
 export interface ExpanderProps {
+  /** Section title */
   title: string
+  /** Optional tooltip text */
   tooltipContent?: string
+  /** Additional value displayed in header */
   rightValue?: string
+  /** Disable border in closed state */
   containerNoBorder?: boolean
+  /** Expandable content */
   children: ReactNode
 }
 
+/**
+ * Collapsible section component
+ * @example
+ * ```tsx
+ * <Expander title="Settings" tooltipContent="Additional settings">
+ *   <div>Expandable content</div>
+ * </Expander>
+ * ```
+ */
 export const Expander: React.FC<ExpanderProps> = ({
   title,
   tooltipContent = '',
@@ -31,7 +48,7 @@ export const Expander: React.FC<ExpanderProps> = ({
 
   return (
     <div
-      className={cx(
+      className={clsx(
         styles.root,
         { [styles.borderNoOpen]: !isOpen },
         { [styles.containerOpen]: isOpen }
@@ -39,7 +56,7 @@ export const Expander: React.FC<ExpanderProps> = ({
     >
       <div
         onClick={handleOpen}
-        className={cx(
+        className={clsx(
           styles.header,
           { [styles.defaultBorder]: true }
         )}
@@ -55,14 +72,14 @@ export const Expander: React.FC<ExpanderProps> = ({
             )}
 
             <div className={styles.selectedCount}>{isOpen ? '' : rightValue}</div>
-            <div className={cx(styles.arrowStyle, { [styles.rotate]: isOpen })}>
+            <div className={clsx(styles.arrowStyle, { [styles.rotate]: isOpen })}>
               <DropdownIcon />
             </div>
           </div>
         </div>
       </div>
 
-      <div className={cx(styles.content, { [styles.contentOpen]: isOpen })}>{children}</div>
+      <div className={clsx(styles.content, { [styles.contentOpen]: isOpen })}>{children}</div>
       {isOpen && <CornersFrame borderColor={styles.bordeColor} width='16px' height='16px' />}
     </div>
   )

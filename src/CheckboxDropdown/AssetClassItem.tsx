@@ -1,9 +1,17 @@
 import React from 'react'
 import styles from './CheckboxDropdown.module.scss'
 import type { AssetClassItemProps } from './types'
-import * as Checkbox from '@radix-ui/react-checkbox'
 import { CheckboxIcon } from '../icons'
+import clsx from 'clsx'
 
+/**
+ * @group Components
+ * @category AssetClassItem
+ */
+
+/**
+ * Selectable item with checkbox for dropdown list
+ */
 export const AssetClassItem: React.FC<AssetClassItemProps> = ({
   label,
   count,
@@ -18,9 +26,9 @@ export const AssetClassItem: React.FC<AssetClassItemProps> = ({
   return (
     <button onClick={handleClick} className={styles.assetItem}>
       <div className={styles.containerCheckbox}>
-        <Checkbox.Root className={styles.checkbox} checked={isChecked}>
-          <Checkbox.Indicator>{isChecked && <CheckboxIcon />}</Checkbox.Indicator>
-        </Checkbox.Root>
+        <div className={clsx(styles.checkbox, { [styles.checked]: isChecked })}>
+          {isChecked && <CheckboxIcon />}
+        </div>
         <span className={styles.assetLabel}>{label}</span>
       </div>
       <span className={styles.assetCount}>{count}</span>

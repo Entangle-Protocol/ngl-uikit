@@ -5,15 +5,52 @@ import { AssetClassItem } from './AssetClassItem'
 import { AssetClassFilter } from './AssetClassFilter'
 import { DropdownIcon } from '../icons'
 import { SearchInput } from '../SearchInput/SearchInput'
-import cx from 'classnames'
+import clsx from 'clsx'
+
+/**
+ * @group Components
+ * @category CheckboxDropdown
+ */
+
+/**
+ * Dropdown with multiple selection and search functionality
+ */
 
 export interface CheckboxDropdownProps {
+  /** Dropdown title */
   label: string
-  items: { label: string; value: string; count: number }[]
+  /** Array of selectable items */
+  items: { 
+    /** Display text */
+    label: string, 
+    /** Item value */
+    value: string, 
+    /** Item count */
+    count: number 
+  }[]
+  /** Selection change handler */
   action: (selectedItems: string[]) => void
+  /** Enable search functionality */
   withSearch?: boolean
+  /** Search input placeholder text */
   searchPlaceholder?: string
 }
+
+/**
+ * Checkbox dropdown component
+ * @example
+ * ```tsx
+ * <CheckboxDropdown
+ *   label="Select Categories"
+ *   items={[
+ *     { label: 'Category 1', value: 'cat1', count: 5 },
+ *     { label: 'Category 2', value: 'cat2', count: 3 }
+ *   ]}
+ *   action={(selected) => console.log(selected)}
+ *   withSearch
+ * />
+ * ```
+ */
 
 export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
   label,
@@ -65,7 +102,7 @@ export const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
         <div className={styles.textDropdown}>
           {label} ({items.length})
         </div>
-        <div className={cx(styles.arrowStyle, { [styles.rotate]: isOpen })}>
+        <div className={clsx(styles.arrowStyle, { [styles.rotate]: isOpen })}>
           <DropdownIcon />
         </div>
       </div>

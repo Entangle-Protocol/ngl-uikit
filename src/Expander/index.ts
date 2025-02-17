@@ -1,1 +1,1 @@
-export { Expander } from './Expander'
+export * from './Expander'
