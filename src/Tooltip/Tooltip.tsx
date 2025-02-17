@@ -5,6 +5,7 @@ import clsx from 'clsx'
 /**
  * Tooltip component for displaying additional information
  */
+
 export interface TooltipProps {
   /** Element that triggers the tooltip */
   children: React.ReactNode
@@ -25,6 +26,7 @@ export interface TooltipProps {
  * </Tooltip>
  * ```
  */
+
 export const Tooltip: React.FC<TooltipProps> = ({
   children,
   content,

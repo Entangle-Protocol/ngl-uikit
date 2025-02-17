@@ -18,6 +18,7 @@ interface TextInputButton {
 /**
  * Text input with optional icon and label
  */
+
 export interface TextInputProps {
   /** Input value */
   value: string
@@ -50,6 +51,7 @@ export interface TextInputProps {
  * />
  * ```
  */
+
 export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChangeTextInput,

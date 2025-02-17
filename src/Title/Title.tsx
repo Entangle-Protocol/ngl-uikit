@@ -5,12 +5,14 @@ import clsx from 'clsx'
 /**
  * Heading component with customizable styles
  */
+
 type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 type TitleColor = 'white' | 'black' | 'gray'
 
 /**
  * Title component props
  */
+
 export interface TitleProps {
   /** Title content */
   children: React.ReactNode
@@ -40,6 +42,7 @@ const variantToElement: Record<TitleVariant, keyof React.JSX.IntrinsicElements> 
  * </Title>
  * ```
  */
+
 export const Title: React.FC<TitleProps> = ({
   children,
   variant = 'h1',
