@@ -1,6 +1,6 @@
 {
   "name": "@entangle-labs/ngl-uikit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -42,7 +42,6 @@
     "babel-preset-react-app": "^10.0.1",
     "css-loader": "^6.8.1",
     "husky": "^8.0.0",
-    "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.69.0",
     "sass-loader": "^13.3.2",
     "semantic-release": "^22.0.0",
