@@ -22,6 +22,7 @@ interface PopoverSelectItem {
 /**
  * Dropdown select with custom items
  */
+
 export interface PopoverSelectProps {
   /** Dropdown label */
   label: string

@@ -11,6 +11,7 @@ import { Tooltip } from '../Tooltip'
 /**
  * Expandable section with header and animated content
  */
+
 export interface ExpanderProps {
   /** Section title */
   title: string
@@ -33,6 +34,7 @@ export interface ExpanderProps {
  * </Expander>
  * ```
  */
+
 export const Expander: React.FC<ExpanderProps> = ({
   title,
   tooltipContent = '',

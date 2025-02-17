@@ -5,6 +5,7 @@ import { SearchIcon } from '../icons'
 /**
  * Search input with icon and debounced onChange
  */
+
 export interface SearchInputProps {
   /** Input placeholder text */
   placeholder?: string

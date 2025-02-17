@@ -7,6 +7,7 @@ import clsx from 'clsx'
 /**
  * Menu item configuration
  */
+
 interface PopoverMenuItem {
   /** Unique identifier */
   id: number | string
@@ -23,6 +24,7 @@ interface PopoverMenuItem {
 /**
  * Dropdown menu with custom actions
  */
+
 export interface PopoverMenuProps {
   /** Array of menu items */
   actions: PopoverMenuItem[]
@@ -42,6 +44,7 @@ export interface PopoverMenuProps {
  * />
  * ```
  */
+
 export const PopoverMenu: React.FC<PopoverMenuProps> = ({
   actions,
   buttonIcon = <OptionDotsIcon />,
