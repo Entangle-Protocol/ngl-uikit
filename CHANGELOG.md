@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/Entangle-Protocol/ngl-uikit/compare/v1.0.3...v1.0.4) (2025-02-17)
+
+
+### Bug Fixes
+
+* **release:** project renaming and direct registry declaration ([79a9369](https://github.com/Entangle-Protocol/ngl-uikit/commit/79a9369d72f0125ea1814ea80b24efc123b5bdae))
+
 ## [1.0.3](https://github.com/Entangle-Protocol/ngl-uikit/compare/v1.0.2...v1.0.3) (2025-02-17)
 
 
