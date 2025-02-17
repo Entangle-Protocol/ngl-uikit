@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/Entangle-Protocol/ngl-uikit/compare/v1.0.5...v1.0.6) (2025-02-17)
+
+
+### Bug Fixes
+
+* **release:** styles is bundling correctly ([78f7341](https://github.com/Entangle-Protocol/ngl-uikit/commit/78f7341b429ac018aeed5d31c6bb7ef7c3b5f1eb))
+
 ## [1.0.5](https://github.com/Entangle-Protocol/ngl-uikit/compare/v1.0.4...v1.0.5) (2025-02-17)
 
 
